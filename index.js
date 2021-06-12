@@ -4,8 +4,11 @@ const mongoose = require('mongoose');
 //Initialize express app
 const app = express();
 
+const CONNECTION_URI = process.env.MONGODB_URI || 'mongodb://localhost/AddressBook';
+const PORT = process.env.PORT || 3000;
+
 // Connecting to DB
-mongoose.connect('mongodb://localhost/AddressBook', {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true})
 // const con = mongoose.connection
 // con.on('open', function() {
 //   console.log('db connected');
@@ -16,6 +19,6 @@ const addressRouter = require('./routes/address-book-route');
 app.use('/address', addressRouter);
 
 //Initialize the sever
-app.listen(3000, () => {
-    console.log('server listening on port:3000');
+app.listen(PORT, () => {
+    console.log(`server listening on port:${PORT}`);
 });
