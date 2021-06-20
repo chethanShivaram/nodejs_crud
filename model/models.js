@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 // Schema for AddressBook
-const addressSchema = mongoose.Schema({
+const addressSchema = new Schema({
     name: {
         type: String
     },
@@ -17,5 +17,6 @@ const addressSchema = mongoose.Schema({
         type: Boolean
     }
 }, { versionKey: false });
+
 //Creating the collection Address
-module.exports = mongoose.model('Address', addressSchema);
+module.exports =  new model('Address', addressSchema);
