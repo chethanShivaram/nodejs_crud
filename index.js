@@ -5,7 +5,7 @@ require('./adapter/db');
 //Initialize express app
 const app = express();
 
-const PORT = process.env.NODEJS_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 //makes sure the server can receive json as a request body.
 app.use(express.json());
